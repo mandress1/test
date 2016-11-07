@@ -1,0 +1,21 @@
+-#  This file is app/views/homepage/index.html.haml
+%h1 About Us
+%h4 We are creating a user friendly pokekmon database and game, all in one!
+
+%h1 Pokemon of the Day!
+= link_to image_tag("pokemon_images/4.png", :class=> "pokemon_of_the_day"),login_path, :id => 'signuplogin'
+%h4 Charmander
+
+%h1 LeaderBoards 
+%table#leaderboards
+  %thead
+    %tr
+      %th Username
+      %th Rank
+      %th Favorite Pokémon
+  %tbody
+    %tr
+      %td Nick
+      %td 1
+      %td Pikachu
+

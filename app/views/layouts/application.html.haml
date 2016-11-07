@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title TPmDB
+    = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    =link_to image_tag("TPmDb_logo_v3.png", :class=> "Logo"),homepages_path, :id=>'logo'
+    #main
+    
+    - if !@current_user
+      = button_to('Sign up/Login', login_path, :class=> "signuplogin", :method => :get, :id => 'signuplogin')
+      = button_to('All Pokémon', allpokemon_path, :class=> "allpokemon",:method=> :post, :id => 'allpokemon')
+      = submit_tag('Search TPmDb', :class=> "search_button", :id => 'search_button')
+      %br
+     
+    - else
+      #notice.flash_message= "You are logged in as #{@current_user[:user_id]}"
+      = button_to 'Logout', logout_path, :method => :delete, :id => 'logout'
+      
+    - if flash[:notice]
+      #notice.message= flash[:notice]
+    - elsif flash[:warning]
+      #warning.message= flash[:warning]
+      
+    = yield

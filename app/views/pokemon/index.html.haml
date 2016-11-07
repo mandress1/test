@@ -1,0 +1,27 @@
+%h1 List of All Pokémon in the Database...
+%table#pokemon
+  %thead
+    %tr
+      %th National Pokédex Number
+      %th Picture
+      %th Pokémon Name 
+      %th Height
+      %th Weight
+      %th Base XP
+      %th Generation
+  %tbody
+  
+  - @pokemons.each do |p|
+    %tr
+      %td #{p.poke_id}
+      %td= image_tag("pokemon_images/#{p.poke_id}.png", :class => 'poke_db_pic')
+      %td #{p.poke_name}
+      %td #{p.height}
+      %td #{p.weight}
+      %td #{p.base_experience}
+      %td #{p.generation}
+       
+
+   
+
+
